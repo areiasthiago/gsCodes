@@ -196,8 +196,11 @@ function alertaSitemapTelegram(mensagem) {
     "contentType": "application/json",
     "payload": JSON.stringify(payload)
   };
-  UrlFetchApp.fetch(url, options);
-  // Logger.log("Dados de checagem enviados no Telegram.");
+  try {
+    UrlFetchApp.fetch(url, options);
+  } catch (error) {
+    Logger.log("Erro ao enviar mensagem para o Telegram: " + error.toString());
+  }
 }
 
 function registroDeSitemap() {
