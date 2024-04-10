@@ -196,11 +196,8 @@ function alertaSitemapTelegram(mensagem) {
     "contentType": "application/json",
     "payload": JSON.stringify(payload)
   };
-  try {
-    UrlFetchApp.fetch(url, options);
-  } catch (error) {
-    Logger.log("Erro ao enviar mensagem para o Telegram: " + error.toString());
-  }
+  registroDeSitemap();
+  // Logger.log("Todos os status code das URLs foram escritos na planilha.");
 }
 
 function registroDeSitemap() {
